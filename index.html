@@ -764,6 +764,20 @@
   document.querySelectorAll('.level-card').forEach((el, i) => {
     el.style.transitionDelay = (i * 0.12) + 's';
   });
+
+  // Clean URL navigation — smooth scroll without hash in address bar
+  document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener('click', function(e) {
+      const href = this.getAttribute('href');
+      if (href === '#') return;
+      const target = document.querySelector(href);
+      if (!target) return;
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      // Replace URL without adding to browser history
+      history.replaceState(null, '', window.location.pathname);
+    });
+  });
 </script>
 </body>
 </html>
