@@ -41,11 +41,18 @@
   }
   .nav-logo {
     font-family: 'Cormorant Garamond', serif;
-    font-size: 1.6rem; font-weight: 600; letter-spacing: 0.08em;
+    font-size: 2.4rem; font-weight: 600; letter-spacing: 0.06em;
     color: var(--gold);
     text-decoration: none;
+    line-height: 1;
+    text-shadow: 0 0 40px rgba(201,168,76,0.3);
   }
-  .nav-logo span { font-style: italic; font-weight: 300; color: var(--text-muted); font-size: 0.75rem; display: block; letter-spacing: 0.25em; text-transform: uppercase; margin-top: -4px; }
+  .nav-logo span {
+    font-style: italic; font-weight: 300;
+    color: var(--gold-light); font-size: 0.7rem; display: block;
+    letter-spacing: 0.32em; text-transform: uppercase; margin-top: 2px;
+    opacity: 0.85;
+  }
   .nav-links { display: flex; gap: 2.5rem; list-style: none; }
   .nav-links a {
     color: var(--text-muted); text-decoration: none;
@@ -69,12 +76,12 @@
   }
   .hero-left {
     display: flex; flex-direction: column; justify-content: center;
-    padding: 8rem 4rem 6rem;
+    padding: 6rem 4rem 4rem;
     position: relative; z-index: 2;
   }
   .hero-eyebrow {
     font-size: 0.7rem; letter-spacing: 0.35em; text-transform: uppercase;
-    color: var(--gold); margin-bottom: 1.5rem;
+    color: var(--gold); margin-bottom: 1rem;
     display: flex; align-items: center; gap: 1rem;
   }
   .hero-eyebrow::before { content: ''; width: 40px; height: 1px; background: var(--gold); }
@@ -82,12 +89,12 @@
     font-family: 'Cormorant Garamond', serif;
     font-size: clamp(3.5rem, 6vw, 5.5rem);
     font-weight: 300; line-height: 1.05;
-    color: var(--text); margin-bottom: 1.5rem;
+    color: var(--text); margin-bottom: 1rem;
   }
   h1.hero-title em { font-style: italic; color: var(--gold); }
   .hero-desc {
     color: var(--text-muted); font-size: 1rem; line-height: 1.8;
-    max-width: 420px; margin-bottom: 3rem;
+    max-width: 420px; margin-bottom: 2rem;
   }
   .hero-btns { display: flex; gap: 1rem; flex-wrap: wrap; }
   .btn-primary {
@@ -105,8 +112,8 @@
   }
   .btn-secondary:hover { border-color: var(--gold); color: var(--gold); }
   .hero-stats {
-    display: flex; gap: 3rem; margin-top: 4rem;
-    padding-top: 2rem; border-top: 1px solid var(--surface3);
+    display: flex; gap: 3rem; margin-top: 2.5rem;
+    padding-top: 1.5rem; border-top: 1px solid var(--surface3);
   }
   .stat-num {
     font-family: 'Cormorant Garamond', serif;
@@ -540,7 +547,7 @@
       <div style="margin-top: 2rem;">
         <p class="about-text">Kathak is one of India's eight classical dance forms, rooted in the devotional poetry of northern India. Its name derives from <em>katha</em> — storyteller — and every performance is a narrative woven through rhythm, gesture, and expression.</p>
         <p class="about-text">At Nrityashala, we preserve this tradition while making it accessible to all. Whether you are a complete beginner or a seasoned dancer, our structured curriculum takes you from first steps to stage performances.</p>
-        <p class="about-text">Located at VELS Global School, Arekere, Bengaluru, our studio is a nurturing space where culture, discipline, and joy come together.</p>
+        <p class="about-text">Located at Orchids International School, Arekere, Bengaluru, our studio is a nurturing space where culture, discipline, and joy come together.</p>
       </div>
       <div class="guru-card">
         <div>
@@ -595,7 +602,7 @@
       <h2 class="section-title" style="margin-bottom:1.5rem;">Guru<br><em>Supriya Mishra</em></h2>
       <p style="color:var(--text-muted);line-height:1.9;margin-bottom:1.25rem;">With a lifetime devoted to the classical art of Kathak, Guru Supriya Mishra brings both technical mastery and deep spiritual understanding to every class. Her performances carry the full weight of this ancient tradition — storytelling through the language of the body.</p>
       <p style="color:var(--text-muted);line-height:1.9;margin-bottom:1.25rem;">Under her guidance, students don't just learn steps — they learn to express, to feel, and to communicate. Her teaching philosophy blends rigorous classical training with nurturing encouragement, creating dancers who are both technically sound and artistically free.</p>
-      <p style="color:var(--text-muted);line-height:1.9;margin-bottom:2.5rem;">Founder of Nrityashala, she has built over ten years of excellence at VELS Global School, Arekere, Bengaluru — shaping hundreds of students across all levels.</p>
+      <p style="color:var(--text-muted);line-height:1.9;margin-bottom:2.5rem;">Founder of Nrityashala, she has built over ten years of excellence at Orchids International School, Arekere, Bengaluru — shaping hundreds of students across all levels.</p>
       <div class="guru-credentials">
         <div class="cred-item">
           <div class="cred-num">10+</div>
@@ -662,7 +669,7 @@
         </div>
         <div class="contact-item">
           <div class="contact-item-label">Venue</div>
-          <div class="contact-item-val">Nrityashala, VELS Global School,<br>Arekere, Bengaluru</div>
+          <div class="contact-item-val">Nrityashala, Orchids International School,<br>Arekere, Bengaluru</div>
         </div>
         <div class="contact-item">
           <div class="contact-item-label">Founded</div>
@@ -671,24 +678,24 @@
       </div>
     </div>
     <div class="reveal" style="transition-delay: 0.15s;">
-      <form class="contact-form" onsubmit="return false;">
+      <form class="contact-form" id="enquiryForm" onsubmit="sendEnquiry(event)">
         <div class="form-row">
           <div class="form-group">
             <label>First Name</label>
-            <input type="text" placeholder="Priya">
+            <input type="text" id="firstName" placeholder="Priya" required>
           </div>
           <div class="form-group">
             <label>Last Name</label>
-            <input type="text" placeholder="Sharma">
+            <input type="text" id="lastName" placeholder="Sharma">
           </div>
         </div>
         <div class="form-group">
           <label>Phone Number</label>
-          <input type="tel" placeholder="+91 98765 43210">
+          <input type="tel" id="phone" placeholder="+91 98765 43210">
         </div>
         <div class="form-group">
           <label>Level of Interest</label>
-          <select>
+          <select id="level">
             <option value="">Select a level</option>
             <option>Beginner</option>
             <option>Intermediate</option>
@@ -698,10 +705,36 @@
         </div>
         <div class="form-group">
           <label>Message</label>
-          <textarea placeholder="Tell us about yourself or ask any questions..."></textarea>
+          <textarea id="message" placeholder="Tell us about yourself or ask any questions..."></textarea>
         </div>
         <button type="submit" class="btn-primary" style="width: 100%; border: none; cursor: pointer;">Send Enquiry</button>
+        <p id="formNote" style="display:none;margin-top:1rem;font-size:0.8rem;color:var(--gold);text-align:center;letter-spacing:0.1em;">
+          ✦ Your email app will open with the enquiry pre-filled — just hit Send!
+        </p>
       </form>
+
+      <script>
+        function sendEnquiry(e) {
+          e.preventDefault();
+          var first   = document.getElementById('firstName').value.trim();
+          var last    = document.getElementById('lastName').value.trim();
+          var phone   = document.getElementById('phone').value.trim();
+          var level   = document.getElementById('level').value;
+          var message = document.getElementById('message').value.trim();
+
+          var name = (first + ' ' + last).trim() || 'Prospective Student';
+          var subject = encodeURIComponent('Nrityashala Enquiry from ' + name);
+          var body = 'Hello Guru Supriya,\n\nI am interested in joining Nrityashala.\n\n'
+                   + 'Name: ' + name + '\n'
+                   + (phone   ? 'Phone: ' + phone + '\n' : '')
+                   + (level   ? 'Level of Interest: ' + level + '\n' : '')
+                   + (message ? '\nMessage:\n' + message + '\n' : '')
+                   + '\nLooking forward to hearing from you!\n' + name;
+
+          window.location.href = 'mailto:chithisupriya@gmail.com?subject=' + subject + '&body=' + encodeURIComponent(body);
+          document.getElementById('formNote').style.display = 'block';
+        }
+      </script>
     </div>
   </div>
 </section>
